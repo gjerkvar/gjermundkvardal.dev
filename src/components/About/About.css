@@ -1,0 +1,50 @@
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 10rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.about-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    align-items: center;
+}
+
+.about-text {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.about-image {
+    flex: 1;
+    max-width: 400px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}

@@ -1,0 +1,52 @@
+.navbar {
+    padding: 1rem;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links {
+    display:flex;
+    justify-content: space-around;
+    list-style: none;
+    padding:0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-link {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect - animate the line*/
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left:0;
+    bottom:0;
+    height: 2px;
+    width: 100%;
+    background-color: #ff8a00; /* Line color */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transfrom 0.3s ease;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav-link.active {
+    color:red;
+}
+
+.nav-link.active::after {
+    transform: scaleX(1);
+}

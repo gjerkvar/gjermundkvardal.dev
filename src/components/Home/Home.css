@@ -1,0 +1,62 @@
+/* Home container */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+  }
+  
+  /* Hero text styling */
+  .hero-text {
+    font-size: 4rem;
+    font-weight: 1500;
+    margin-top: 0.5rem; /* Reduce this value to make the space above smaller */
+    color: var(--accent-color);
+  }
+  
+  /* Typing effect styling */
+  .typing-effect {
+    font-size: 2rem;
+    color: var(--text-color);
+    font-weight: bold;
+  }
+  
+  /* Default theme toggle section, under the typewriter */
+  .theme-mode-section {
+    margin-top: 2rem;
+    position: relative; /* Default position */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  /* Sticky class for when it becomes sticky */
+  .sticky-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease forwards;
+  }
+  
+  /* Animation for sticky appearance */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Adjustments for mobile */
+  @media (max-width: 768px) {
+    .theme-mode-section {
+      font-size: 0.9rem;
+    }
+  }
+  
