@@ -4,49 +4,51 @@
 
 .projects-page h2 {
   margin-bottom: 3rem;
+  color: var(--accent-color);
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.5rem;
-  justify-content: center;
-}
-
-/* Break to a single column layout on smaller screens */
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr; /* Stacks cards vertically */
-  }
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Increase minimum card size */
+  gap: 1.5rem; /* Reduce gap between cards */
+  justify-items: center; /* Center cards within their grid cells */
 }
 
 .project-card {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  width: 100%;
+  max-width: 320px; /* Increase the maximum width of each card */
+  height: 240px; /* Increase the height of the cards */
+  aspect-ratio: 16 / 9; /* Maintains consistent aspect ratio */
+  background-color: var(--background-secondary-color); /* Flat background */
+  background-size: cover; /* Ensures full coverage of the card */
+  background-position: center; /* Centers the background image */
   color: var(--text-color);
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.3s ease;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
-  aspect-ratio: 16 / 9;
-  max-width: 100%;
   overflow: hidden;
 }
 
 .project-card-title {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  color: var(--accent-color); /* Match accent color */
+  font-weight: bold;
   text-align: center;
-  position: relative;
   z-index: 1;
+  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for visibility */
+}
+
+.project-card:hover {
+  transform: scale(1.02); /* Subtle scaling for hover effect */
+  background-color: var(--accent-hover-color); /* Accent hover color */
+}
+
+.project-card:hover .project-card-title {
+  visibility: visible;
 }
 
 .project-card::before {
@@ -56,12 +58,17 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 8px;
+  background-color: var(--accent-color);
+  opacity: 0.4; /* Subtle overlay */
   z-index: 0;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  color: #ff8a00;
+/* Break to a single-column layout on smaller screens */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* Stacks cards vertically */
+  }
+  .projects-page {
+    padding: 2rem; /* Adjust padding for smaller screens */
+  }
 }

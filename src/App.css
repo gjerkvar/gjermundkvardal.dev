@@ -1,3 +1,5 @@
+@import './styles/Global.css'; /* Import global styles */
+
 /* Portfolio container */
 .portfolio-container {
   display: flex;
@@ -17,10 +19,8 @@ section {
   min-height: 100vh;
 }
 
+/* Styling for ThemeToggle */
 /* Default ThemeToggle behavior - under the hero text */
-/* Normal position */
-/* Normal position */
-/* Normal position under hero text */
 .theme-toggle-container {
   position: relative;
   margin-top: 2rem;
@@ -53,3 +53,5 @@ section {
     transform: translateY(0);
   }
 }
+
+

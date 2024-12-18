@@ -1,0 +1,22 @@
+.admin-back-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+  
+  .admin-back-button:hover {
+    color: var(--accent-color);
+    background: none;
+    transform: none;
+  }
+  

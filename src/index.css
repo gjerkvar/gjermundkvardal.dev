@@ -1,18 +1,26 @@
 /* Default Light Theme */
 :root {
-  --background-color: #ffffff;
-  --text-color: #333333;
-  --accent-color: #ff8a00;
+  --accent-color: #354F72; /* Oslo Blau */
+  --background-color: #F4F4F4; /* Light Gray */
+  --background-secondary-color: #FFFFFF; /* White */
+  --text-color: #1C1C1C; /* Dark Gray/Black */
+  --accent-hover-color: #2A3E58; /* Darker Oslo Blau */
+  --highlight-color: #84A9C0; /* Lighter Oslo Blau */
+  --error-color: #FF6B6B; /* Error Red */
 }
 
 /* Dark Theme */
 [data-theme="dark"] {
-  --background-color: #121212;
-  --text-color: #f0f0f0;
-  --accent-color: #ff8a00;
+  --background-color: #121212; /* Dark Neutral */
+  --background-secondary-color: #1E1E1E; /* Slightly lighter for cards/forms */
+  --text-color: #F4F4F4; /* Light Text */
+  --accent-color: #5DA1D6; /* Oslo Blue for Dark Mode */
+  --accent-hover-color: #3B7EAA; /* Darker Blue for Hover */
+  --highlight-color: #8AC7E8; /* Highlight Light Blue */
+  --error-color: #FF5A5A; /* Softer Error Red */
 }
 
-
+/* General Body Styling */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -25,7 +33,36 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Code Styling */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Button Styling */
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #FFFFFF; /* White text */
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--accent-hover-color);
+  transform: scale(1.05);
+}
+
+
+
+/* Cards or Secondary Elements */
+.card {
+  background-color: var(--background-secondary-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }

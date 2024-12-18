@@ -3,10 +3,11 @@ import { db } from "../../firebaseConfig"; // Adjust path if needed
 import { collection, getDocs } from "firebase/firestore";
 import ProjectDialog from "./ProjectDialog/ProjectDialog.component";
 import "./Projects.css";
+import { ProjectTypes } from "./Project.types";
 
 const Projects = () => {
-    const [projects, setProjects] = useState<any[]>([]);
-    const [selectedProject, setSelectedProject] = useState<any>(null);
+    const [projects, setProjects] = useState<ProjectTypes[]>([]);
+    const [selectedProject, setSelectedProject] = useState<ProjectTypes | null>(null);
     const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   
     // Fetch projects from Firestore
@@ -15,9 +16,9 @@ const Projects = () => {
         try {
           const querySnapshot = await getDocs(collection(db, "projects"));
           const fetchedProjects = querySnapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
+            ...(doc.data() as ProjectTypes),
           }));
+          console.log(fetchedProjects,'lol');
           setProjects(fetchedProjects);
         } catch (error) {
           console.error("Error fetching projects:", error);
@@ -35,6 +36,10 @@ const Projects = () => {
     const closeDialog = () => {
       setIsDialogOpen(false);
     };
+
+    useEffect(() => {
+      console.log("projects", projects)
+    },[projects])
   
     return (
       <section className="projects-page">
@@ -47,7 +52,7 @@ const Projects = () => {
               onClick={() => openDialog(project)}
               style={{ backgroundImage: `url(${project.imageUrl})` }}
             >
-              <h3 className="project-card-title">{project.name}</h3>
+              <h3 className="project-card-title">{project.title}</h3>
             </div>
           ))}
         </div>

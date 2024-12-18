@@ -1,0 +1,26 @@
+.contact-form-success-alert {
+    padding: 20px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 8px;
+    margin-top: 12px;
+  }
+
+  .contact-form-error-alert {
+    padding: 20px;
+    background-color: var( --error-color);
+    color: white;
+    border-radius: 8px;
+    margin-top: 12px;
+  }
+  
+  .contact-form-alert-close-button {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }

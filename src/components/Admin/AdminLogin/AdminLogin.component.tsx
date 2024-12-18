@@ -3,6 +3,8 @@ import { auth } from "../../../firebaseConfig"; // Adjust path if needed
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import "./AdminLogin.css";
+import "../../../styles/GlobalAdmin.css";
+import { FaArrowLeft } from "react-icons/fa";
 
 interface AdminLoginProps {
   onLoginSuccess?: () => void;
@@ -27,6 +29,7 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
 
   return (
     <div className="login-container">
+        <button className="admin-back-button" onClick={() => navigate(-1)}> <FaArrowLeft /> Back</button>
       <form onSubmit={handleLogin} className="login-form">
         <input
           type="email"

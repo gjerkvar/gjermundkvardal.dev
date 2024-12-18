@@ -3,7 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Home from './components/Home/Home.component';
 import About from './components/About/About.component';
 import Projects from './components/Projects/Projects.component';
-import Contact from './components/Contact.component';
+import Contact from './components/Contact/Contact.component';
 import ThemeToggle from './components/ThemeToggle/ThemeToggle.component';
 import './App.css';
 import ProtectedRoute from './components/Admin/ProtectedRoute';
@@ -45,22 +45,19 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/admin" element={<ProtectedRoute component={AdminDashboard} />} />
       </Routes>
       
       <div className="portfolio-container">
         <main className="content">
-          <section id="home">
-            <Home />
-            <p>Do you want to view the page in dark or light mode?</p>
             <div 
               ref={themeToggleRef} 
               className={`theme-toggle-container ${isSticky ? 'sticky-toggle' : ''}`}
             >
               <ThemeToggle />
             </div>
-          </section>
           <section id="about">
             <About />
           </section>
