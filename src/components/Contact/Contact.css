@@ -5,20 +5,18 @@
     box-sizing: border-box; /* Ensures consistent box model */
 }
 
-/* Contact container */
 .contact-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Full viewport height */
+    min-height: 100vh; 
     background-color: var(--background-color);
     color: var(--text-color);
     padding: 2rem;
     text-align: center;
 }
 
-/* Contact heading */
 .contact-heading {
     font-size: 3rem;
     font-weight: 1500;
@@ -26,25 +24,25 @@
     color: var(--accent-color);
 }
 
-/* Contact form */
 .contact-form {
     width: 100%;
     max-width: 600px;
+    min-width: 350px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Ensures all child elements are horizontally centered */
-    gap: 1.5rem; /* Spacing between form elements */
-    background-color: var(--background-secondary-color); /* Slightly different from the background */
+    align-items: center; 
+    gap: 1.5rem;
+    background-color: var(--background-secondary-color);
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 0 auto; /* Center the form horizontally */
+    margin: 0 auto; 
 }
 
-/* Form inputs and textarea */
+
 .contact-form input,
 .contact-form textarea {
-    width: 100%; /* Match the width of the form */
+    width: 100%; 
     padding: 0.75rem;
     font-size: 1rem;
     color: var(--text-color);
@@ -53,22 +51,22 @@
     border-radius: 4px;
     outline: none;
     transition: border-color 0.3s ease;
-    box-sizing: border-box; /* Ensures consistent padding in width */
+    box-sizing: border-box; 
 }
 
-/* Input focus state */
+
 .contact-form input:focus,
 .contact-form textarea:focus {
-    border-color: var(--accent-hover-color); /* Use hover or focus color */
+    border-color: var(--accent-hover-color); 
 }
 
-/* Submit button */
+
 .contact-form button {
-    width: 100%; /* Button matches the form width */
+    width: 100%; 
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     font-weight: bold;
-    color: #FFFFFF; /* White text */
+    color: #FFFFFF; 
     background-color: var(--accent-color);
     border: none;
     border-radius: 4px;
@@ -76,18 +74,10 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Button hover effect */
-.contact-form button:hover {
-    background-color: var(--accent-hover-color); /* Slightly darker accent color */
-    transform: scale(1.05); /* Subtle hover scaling */
-}
 
-/* Status message */
-.contact-status {
-    margin-top: 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--status-color); /* Success or error color */
+.contact-form button:hover {
+    background-color: var(--accent-hover-color); 
+    transform: scale(1.05); 
 }
 
 /* Mobile adjustments */
@@ -96,10 +86,23 @@
         font-size: 2.5rem;
     }
     .contact-form {
-        padding: 1.5rem; /* Reduce padding for smaller screens */
-        width: calc(100% - 2rem); /* Add some spacing from the edges */
+        padding: 1.5rem;
+        width: 100%; 
+        max-width: none;
     }
     .contact-form button {
-        font-size: 0.9rem; /* Adjust button size */
+        font-size: 0.9rem; 
+    }
+}
+
+@media (max-width: 500px) {
+    .contact-container {
+        justify-content: flex-start; /* Aligns items at the top */
+    }
+    .contact-form {
+        width: 100%; /* Ensures full width */
+        margin: 0; /* Removes horizontal centering */
+        border-radius: 0; /* Optional: removes border radius for a full-width effect */
+        padding: 1.5rem; /* Adjust padding for smaller screens */
     }
 }
