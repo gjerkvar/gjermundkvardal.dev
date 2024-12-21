@@ -10,7 +10,6 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
   onClose,
   project,
 }) => {
-  
   useEffect(() => {
     if (isOpen) {
       // Disable scrolling
@@ -26,21 +25,10 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
     };
   }, [isOpen]);
 
- return (
-  <div className={`dialog-overlay ${isOpen ? "open" : ""}`}>
-    <div className="dialog-content">
-      {project.imageUrl ? (
-        <img
-          src={project.imageUrl}
-          alt={project.title}
-          className="project-image"
-        />
-      ) : (
-        <div className="project-image-placeholder">No Image Available</div>
-      )}
-
-      <div className="text-container">
-        <div className="project-dialog-header">
+  return (
+    <div className={`dialog-overlay ${isOpen ? "open" : ""}`}>
+      <div className="dialog-content">
+        <div className="sticky-dialog-header">
           <h2 className="project-title">{project.title}</h2>
           <div className="project-links">
             <a
@@ -59,26 +47,36 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
             </a>
           </div>
         </div>
-        <h3 className="section-heading">Description</h3>
-        <p className="section-content">{project.description}</p>
-        {project.whatILearned && (
-          <>
-            <h3 className="section-heading">What I Learned</h3>
-            <p className="section-content">{project.whatILearned}</p>
-          </>
+        {project.imageUrl ? (
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            className="project-image"
+          />
+        ) : (
+          <div className="project-image-placeholder">No Image Available</div>
         )}
-      </div>
-      <div>
-      </div>
-      <div className="portfolio-dialog-footer">
-        <button className="close-button" onClick={onClose}>
-          Back
-        </button>
+
+        <div className="text-container">
+          <div className="project-dialog-header"></div>
+          <h3 className="section-heading">Description</h3>
+          <p className="section-content">{project.description}</p>
+          {project.whatILearned && (
+            <>
+              <h3 className="section-heading">What I Learned</h3>
+              <p className="section-content">{project.whatILearned}</p>
+            </>
+          )}
+        </div>
+        <div></div>
+        <div className="portfolio-dialog-footer">
+          <button className="close-button" onClick={onClose}>
+            Back
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-);
-
+  );
 };
 
 export default ProjectDialog;

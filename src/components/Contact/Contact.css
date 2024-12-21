@@ -97,12 +97,12 @@
 
 @media (max-width: 500px) {
     .contact-container {
-        justify-content: flex-start; /* Aligns items at the top */
+        justify-content: flex-start;
     }
     .contact-form {
-        width: 100%; /* Ensures full width */
-        margin: 0; /* Removes horizontal centering */
-        border-radius: 0; /* Optional: removes border radius for a full-width effect */
-        padding: 1.5rem; /* Adjust padding for smaller screens */
+        width: 100%;
+        margin: 0; 
+        border-radius: 0;
+        padding: 1.5rem; 
     }
 }
