@@ -147,11 +147,6 @@
     opacity: 1;
 }
 
-.sticky-dialog-header {
-    position: sticky;
-    background-color: hotpink;
-}
-
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     h2 {

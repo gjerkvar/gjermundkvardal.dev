@@ -4,7 +4,6 @@ import { useEffect } from "react";
 
 export const ContactFormAlert = (props: ContactFormAlertTypes) => {
 
-    // Close alert after 10 seconds
     useEffect(() => {
         if(props.openErrorAlert || props.openSuccessAlert) {
             const interval = setInterval(() => {
