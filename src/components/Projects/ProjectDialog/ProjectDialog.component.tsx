@@ -68,9 +68,7 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
           </>
         )}
       </div>
-      <div>
-      </div>
-      <div className="portfolio-dialog-footer">
+      <div className="sticky-bar">
         <button className="close-button" onClick={onClose}>
           Back
         </button>

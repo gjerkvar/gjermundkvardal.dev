@@ -11,7 +11,6 @@
     z-index: 1000;
     pointer-events: none;
 }
-
 .dialog-overlay.open {
     opacity: 1;
     pointer-events: all;
@@ -28,25 +27,20 @@
     width: 85vw;
     height: 85vh;
     max-width: 1200px;
-    overflow-y: auto; /* Enable scrolling when content overflows */
+    overflow-y: auto;
     border-radius: 16px;
     z-index: 1001;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Ensures content + sticky bar occupy full space */
+    justify-content: flex-start;
     transition: transform 0.4s ease;
     box-sizing: border-box;
 }
 
-/* Padding adjustment for content without affecting sticky bar */
-.dialog-content > .text-container {
-    flex: 1;
-    margin-bottom: 0; /* Avoid adding unwanted spacing */
-}
-
 /* Sticky bar at the bottom of the dialog */
 .sticky-bar {
+    margin-top: auto;
     position: sticky;
     bottom: 0;
     left: 0;
@@ -58,8 +52,7 @@
     align-items: center;
     z-index: 1002;
     box-sizing: border-box;
-    margin: 0; /* Ensure no margins contribute to gaps */
-    flex-shrink: 0; /* Prevent shrinking */
+    flex-shrink: 0;
 }
 
 /* Close button styling */
@@ -71,7 +64,6 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
 .sticky-bar .close-button:hover {
     background-color: var(--accent-hover-color);
 }
@@ -82,47 +74,53 @@
     max-width: 800px;
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    margin: 1.5rem auto; /* Ensure proper spacing around the image */
+    margin: 1.5rem auto;
     border-radius: 8px;
 }
 
-/* Title and description container for left alignment */
+/* Title and description container */
 .text-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 0.2rem;  /* Minimal gap between children */
     width: 100%;
     margin: 1rem 0;
     padding: 0 1rem;
-}
-
-/* Project title styling */
-.project-title {
-    font-size: 1.8rem;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-}
-
-/* Section heading styling */
-.section-heading {
-    margin: 0;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Section content (description) styling */
-.section-content {
-    margin: 0;
-    line-height: 1.4;
 }
 
 /* Project dialog header */
 .project-dialog-header {
     display: flex;
     align-items: baseline;
-    gap: 0.5rem;
+    gap: 0.2rem; /* Reduced gap between header elements */
     width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Minimize whitespace between dialog header and dialog content */
+.project-dialog-header + .section-heading {
+    margin-top: -0.8em; /* Increased negative margin for a teeny bit more reduction */
+}
+
+/* Project title styling */
+.project-title {
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+/* Section heading styling */
+.section-heading {
+    font-size: 1.2rem;         
+    margin-top: 0.5rem;  
+    margin-bottom: 1rem;   
+    line-height: 1;
+}
+
+/* Section content styling */
+.section-content {
+    line-height: 1.2;
 }
 
 /* Link icons */
@@ -132,7 +130,6 @@
     align-items: center;
     height: 1.8rem;
 }
-
 .link-logo {
     font-size: 1.3rem;
     cursor: pointer;
@@ -140,7 +137,6 @@
     color: var(--accent-hover-color);
     opacity: 0.8;
 }
-
 .link-logo:hover {
     transform: scale(1.1);
     color: var(--highlight-color);
@@ -152,23 +148,19 @@
     h2 {
         font-size: 1.4rem;
     }
-
     p {
         font-size: 1rem;
     }
-
     .text-container {
-        gap: 1rem;
+        gap: 0.2rem;
     }
-
     .section-heading {
         font-size: 1.2rem;
+        margin-bottom: 1rem;
     }
-
     .section-content {
         font-size: 1rem;
     }
-
     .dialog-content {
         width: 100vw;
         height: 100vh;
@@ -179,12 +171,12 @@
         padding: 1rem 1rem 0 1rem;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        margin-bottom: 0;
     }
-
     .text-container {
-        gap: 1rem;
         padding: 0;
         margin: 1rem 0 0 0;
+        margin-bottom: 0;
+        justify-content: flex-start;
     }
 }
