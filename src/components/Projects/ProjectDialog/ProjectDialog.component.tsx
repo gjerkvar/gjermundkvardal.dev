@@ -10,7 +10,6 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
   onClose,
   project,
 }) => {
-  
   useEffect(() => {
     if (isOpen) {
       // Disable scrolling
@@ -26,57 +25,61 @@ const ProjectDialog: React.FC<ProjectDialogProps> = ({
     };
   }, [isOpen]);
 
- return (
-  <div className={`dialog-overlay ${isOpen ? "open" : ""}`}>
-    <div className="dialog-content">
-      {project.imageUrl ? (
-        <img
-          src={project.imageUrl}
-          alt={project.title}
-          className="project-image"
-        />
-      ) : (
-        <div className="project-image-placeholder">No Image Available</div>
-      )}
-
-      <div className="text-container">
-        <div className="project-dialog-header">
-          <h2 className="project-title">{project.title}</h2>
-          <div className="project-links">
-            <a
-              href={project.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub className="link-logo" />
-            </a>
-            <a
-              href={project.liveLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FiExternalLink className="link-logo" />
-            </a>
-          </div>
-        </div>
-        <h3 className="section-heading">Description</h3>
-        <p className="section-content">{project.description}</p>
-        {project.whatILearned && (
-          <>
-            <h3 className="section-heading">What I Learned</h3>
-            <p className="section-content">{project.whatILearned}</p>
-          </>
+  return (
+    <div className={`dialog-overlay ${isOpen ? "open" : ""}`}>
+      <div className="dialog-content">
+        {project.imageUrl ? (
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            className="project-image"
+          />
+        ) : (
+          <div className="project-image-placeholder">No Image Available</div>
         )}
-      </div>
-      <div className="sticky-bar">
-        <button className="close-button" onClick={onClose}>
-          Back
-        </button>
+
+        <div className="text-container">
+          <div className="project-dialog-header">
+            <h2 className="project-title">{project.title}</h2>
+            <div className="project-links">
+              {project.githubLink && (
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaGithub className="link-logo" />
+                </a>
+              )}
+             {project.liveLink && (
+                <a
+                  href={project.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FiExternalLink className="link-logo" />
+                </a>
+              )}
+    
+            </div>
+          </div>
+          <h3 className="section-heading">Description</h3>
+          <p className="section-content">{project.description}</p>
+          {project.whatILearned && (
+            <>
+              <h3 className="section-heading">What I Learned</h3>
+              <p className="section-content">{project.whatILearned}</p>
+            </>
+          )}
+        </div>
+        <div className="sticky-bar">
+          <button className="close-button" onClick={onClose}>
+            Back
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-);
-
+  );
 };
 
 export default ProjectDialog;
