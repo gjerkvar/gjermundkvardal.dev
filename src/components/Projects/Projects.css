@@ -1,5 +1,8 @@
 .projects-page {
-  padding: 4rem 2rem;
+  padding: 0;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .projects-page h2 {
@@ -66,9 +69,14 @@
 /* Break to a single-column layout on smaller screens */
 @media (max-width: 768px) {
   .projects-grid {
-    grid-template-columns: 1fr; /* Stacks cards vertically */
+    grid-template-columns: 1fr;
   }
   .projects-page {
-    padding: 2rem; /* Adjust padding for smaller screens */
+    padding: 0.25rem;
+  }
+  .project-card {
+    max-width: none;
+    width: 99.5%;
+    height: 260px;
   }
 }
