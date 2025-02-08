@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { db } from "../../firebaseConfig"; // Adjust path if needed
+import { db } from "../../firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import ProjectDialog from "./ProjectDialog/ProjectDialog.component";
 import "./Projects.css";
