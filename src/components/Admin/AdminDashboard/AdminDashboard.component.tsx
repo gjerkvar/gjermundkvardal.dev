@@ -122,10 +122,9 @@ const AdminDashboard: React.FC = () => {
         {technologies.map((technology) => (
           <div key={technology.id}>
             <li className="project-item">
-              <img src={technology.imageUrl} alt={technology.title} className="project-thumbnail" />
+              <img src={technology.logoUrl} alt={technology.title} className="project-thumbnail" />
               <div>
-                <h4>{technology.title}</h4>
-                <p>{technology.description}</p>
+                <h4>{technology.name}</h4>
                 <button onClick={() => handleTechnologyEdit(technology, setSelectedTechnology, setTechnologyDialogMode, setOpenTechnologyDialog)} className="portfolio-button">
                   Edit
                 </button>
