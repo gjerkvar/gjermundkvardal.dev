@@ -1,15 +1,13 @@
-import {
-  AddEditDialogModeEnum,
-  AddEditDialogProps,
-} from "./AddEditDialogProps";
-import "./AddEditDialog.css";
+
+import "./ProjectAddEditDialog.css";
 import { useState, useEffect } from "react";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
 import { db, storage } from "../../../../firebaseConfig";
 import "../../../../styles/GlobalDialog.css";
+import { ProjectAddEditDialogModeEnum, ProjectAddEditDialogProps } from "./ProjectAddEditDialogProps";
 
-const AddEditDialog = (props: AddEditDialogProps) => {
+const ProjectAddEditDialog = (props: ProjectAddEditDialogProps) => {
   const [title, setTitle] = useState<string>(props.selectedProject?.title || "");
   const [description, setDescription] = useState<string>(props.selectedProject?.description || "");
   const [whatILearned, setWhatILearned] = useState<string>(props.selectedProject?.whatILearned || "");
@@ -38,7 +36,7 @@ const AddEditDialog = (props: AddEditDialogProps) => {
   }, [image]);
 
   useEffect(() => {
-    if (props.isOpen) {
+    if (props.isProjectDialogOpen) {
       document.body.style.overflow = 'hidden'; // Disable scroll
     } else {
       document.body.style.overflow = 'auto'; // Enable scroll
@@ -48,7 +46,7 @@ const AddEditDialog = (props: AddEditDialogProps) => {
     return () => {
       document.body.style.overflow = 'auto';
     };
-  }, [props.isOpen]);
+  }, [props.isProjectDialogOpen]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -71,7 +69,7 @@ const AddEditDialog = (props: AddEditDialogProps) => {
         imageUrl,
       };
 
-      if (props.mode === AddEditDialogModeEnum.Add) {
+      if (props.mode === ProjectAddEditDialogModeEnum.Add) {
         const docRef = await addDoc(collection(db, "projects"), projectData);
         props.setProjects([...props.projects, { ...projectData, id: docRef.id, imageUrl: projectData.imageUrl || "" }]);
       } else {
@@ -91,8 +89,8 @@ const AddEditDialog = (props: AddEditDialogProps) => {
   };
 
   const handleCancel = () => {
-    props.setIsOpen(false);
-    props.setMode(AddEditDialogModeEnum.None);
+    props.setIsProjectDialogOpen(false);
+    props.setMode(ProjectAddEditDialogModeEnum.None);
     props.setSelectedProject(null);
     // Reset form
     setTitle("");
@@ -104,12 +102,12 @@ const AddEditDialog = (props: AddEditDialogProps) => {
   };
 
   return (
-    <div className={`dialog-overlay ${props.isOpen ? "open" : ""}`}>
+    <div className={`dialog-overlay ${props.isProjectDialogOpen ? "open" : ""}`}>
       <div className="portfolio-dialog-content">
         <h1>
-          {props.mode === AddEditDialogModeEnum.Add
+          {props.mode === ProjectAddEditDialogModeEnum.Add
             ? "Create Project"
-            : "Edit project"}
+            : "Edit Project"}
         </h1>
         <div>
           <form onSubmit={handleSubmit}>
@@ -151,7 +149,7 @@ const AddEditDialog = (props: AddEditDialogProps) => {
                   alt="Selected preview" 
                   className="image-preview"
                 />
-              ) : props.mode === AddEditDialogModeEnum.Update && props.selectedProject?.imageUrl ? (
+              ) : props.mode === ProjectAddEditDialogModeEnum.Update && props.selectedProject?.imageUrl ? (
                 <img 
                   src={props.selectedProject.imageUrl} 
                   alt="Current project" 
@@ -168,7 +166,7 @@ const AddEditDialog = (props: AddEditDialogProps) => {
               onChange={(e) =>
                 setImage(e.target.files ? e.target.files[0] : null)
               }
-              required={props.mode === AddEditDialogModeEnum.Add}
+              required={props.mode === ProjectAddEditDialogModeEnum.Add}
               accept="image/*"
             />
          
@@ -187,4 +185,4 @@ const AddEditDialog = (props: AddEditDialogProps) => {
   );
 };
 
-export default AddEditDialog;
+export default ProjectAddEditDialog;

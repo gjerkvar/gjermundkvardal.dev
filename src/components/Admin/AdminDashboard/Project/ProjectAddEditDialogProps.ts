@@ -8,18 +8,18 @@ export interface Project {
     liveLink: string;
 }
 
-export interface AddEditDialogProps {
-    isOpen: boolean;
-    setIsOpen: (isOpen: boolean) => void;
-    mode: AddEditDialogModeEnum;
-    setMode: (mode: AddEditDialogModeEnum) => void;
+export interface ProjectAddEditDialogProps {
+    isProjectDialogOpen: boolean;
+    setIsProjectDialogOpen: (isOpen: boolean) => void;
+    mode: ProjectAddEditDialogModeEnum;
+    setMode: (mode: ProjectAddEditDialogModeEnum) => void;
     selectedProject: Project | null;
     setSelectedProject: (project: Project | null) => void;
     projects: Project[];
     setProjects: (projects: Project[]) => void;
 }
 
-export enum AddEditDialogModeEnum {
+export enum ProjectAddEditDialogModeEnum {
     None = 'None',
     Add = 'Add',
     Update = 'Update'

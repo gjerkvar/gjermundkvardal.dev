@@ -1,0 +1,23 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-y: auto;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    padding: 4rem 2rem;
+    margin-top: 60px; /* Add space for fixed navbar */
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        padding: 2rem 1rem;
+    }
+} 

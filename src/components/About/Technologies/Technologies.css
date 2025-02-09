@@ -1,0 +1,122 @@
+/* Technologies.css */
+
+/* Overall container */
+.technologies {
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Main header */
+.technologies h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--accent-color);
+}
+
+/* Each category section */
+.tech-category-section {
+  margin-bottom: 2rem;
+}
+
+/* Category header styling */
+.tech-category-header {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+/* Grid container */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Card styling */
+.tech-card {
+  background-color: var(--background-secondary-color);
+  border-radius: 8px;
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 80px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid transparent;
+}
+
+/* Logo styling */
+.tech-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Name styling */
+.tech-name {
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tech-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Information styling */
+.tech-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.tech-category {
+  font-size: 0.8rem;
+  color: var(--accent-color);
+}
+
+/* Example category colors */
+.tech-category.frontend {
+  color: #4caf50; /* Green for Frontend */
+}
+.tech-category.backend {
+  color: #2196f3; /* Blue for Backend */
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  
+  .tech-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+    min-height: 100px;
+  }
+  
+  .tech-logo {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .tech-name {
+    font-size: 0.9rem;
+  }
+}

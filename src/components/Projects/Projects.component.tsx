@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { db } from "../../firebaseConfig"; // Adjust path if needed
+import { db } from "../../firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import ProjectDialog from "./ProjectDialog/ProjectDialog.component";
 import "./Projects.css";
@@ -43,18 +43,20 @@ const Projects = () => {
   
     return (
       <section className="projects-page">
-        <h2>Projects</h2>
-        <div className="projects-grid">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="project-card"
-              onClick={() => openDialog(project)}
-              style={{ backgroundImage: `url(${project.imageUrl})` }}
-            >
-              <h3 className="project-card-title">{project.title}</h3>
-            </div>
-          ))}
+        <div className="projects-content">
+          <h2>Projects</h2>
+          <div className="projects-grid">
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                className="project-card"
+                onClick={() => openDialog(project)}
+                style={{ backgroundImage: `url(${project.imageUrl})` }}
+              >
+                <h3 className="project-card-title">{project.title}</h3>
+              </div>
+            ))}
+          </div>
         </div>
   
         {selectedProject && (
